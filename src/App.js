@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Todos from './components/TodoComponents/Todos'
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
 
 class App extends Component {
  state= {
@@ -12,7 +13,7 @@ class App extends Component {
     {
       id: 2,
       task:'Dinner with girlfriend',
-      completed: false
+      completed: true
     },
     {
       id: 3,
@@ -28,7 +29,8 @@ class App extends Component {
     console.log(this.state.todos)
     return (
       <div>
-        <Todos todos={this.state.todos} />
+        <TodoList todos={this.state.todos} />
+        <TodoForm />
       </div>
     );
   }

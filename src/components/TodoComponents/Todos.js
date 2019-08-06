@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
-import TodoList from './TodoList'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+
+
 
 export default class Todos extends Component {
+    getStyle = () => {
+        return{
+            background: '#f4f4f4',
+            borderBottom: '1px #ccc dotted',
+            padding: '10px',
+            textDecoration: this.props.todo.completed ? 
+            'line-through' : 'none'
+        }
+    }
     render() {
-        return this.props.todos.map((todo) => (
-            <TodoList key={todo.id} todo={todo}/>
-        ));
+        return (
+            <div style={this.getStyle()}>
+                <h3>{this.props.todo.task}</h3>
+            </div>
+        )
     }
 }
 
 Todos.propTypes = {
-    todos: PropTypes.array.isRequired
+    todo: PropTypes.object.isRequired
 }
+
+
+
