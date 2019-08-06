@@ -11,7 +11,7 @@ export default class TodoForm extends Component {
                     name='item'
                     onChange={this.handleChanges}
                     />
-                    <button>ADD TODO</button>
+                    <button onClick={this.props.handleAddTodo}>ADD TODO</button>
                 </form>
             </div>
         )
