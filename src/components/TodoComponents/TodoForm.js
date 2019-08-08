@@ -13,11 +13,13 @@ export default class TodoForm extends Component {
     }
 
     handleSubmit = e => {
-        
+        e.preventDefault();
+        this.props.addTodo(this.state.newtodo);
+
     }
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input type='text' 
                         name='newtodo' 
                         placeholder='Add a new Todo' 
