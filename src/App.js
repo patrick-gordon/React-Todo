@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
-
+import Todoform from './components/TodoComponents/TodoForm'
 const todoData = [
   {
     task: 'Organize Garage',
@@ -26,13 +26,16 @@ class App extends React.Component {
   }
 
   toggleCompleted = (id) => {
-    this.state.todos.map(todo => {
-      if (id === todo.id) {
-      return {...todo, completed: !todo.completed}
-      } else {
-        return todo;
-      }
-    })
+    console.log('toggleCompleted', id)
+    this.setState({ 
+      todos: this.state.todos.map(todo => {
+        if (id === todo.id) {
+        return {...todo, completed: !todo.completed}
+        } else {
+          return todo;
+        }
+      })
+    });
   }
 
   render() {
@@ -40,6 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
+        <Todoform />
       </div>
     );
   }
